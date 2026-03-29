@@ -6,7 +6,7 @@ Make a simple 2D coin collector game. A character walks left/right, jumps, and c
 
 ## 1. Core Game
 - **Depends on:** (none)
-- **Status:** pending
+- **Status:** done
 - **Targets:** project.godot, scenes/main.tscn, scenes/player.tscn, scenes/coin.tscn, scripts/player.gd, scripts/coin.gd, scripts/game_manager.gd
 - **Goal:** Complete playable game — player can walk, jump, collect coins that count toward a score, with a score HUD. Simple single-screen level with platforms and scattered coins.
 - **Requirements:**
@@ -17,7 +17,12 @@ Make a simple 2D coin collector game. A character walks left/right, jumps, and c
   - Score displayed in top-left HUD (white bold text with dark outline, large font)
   - When all coins collected, display "You Win!" and a restart prompt
   - Colorful sprites drawn in GDScript using draw calls (no external image files needed): orange circle for player, yellow circle with star outline for coin, green rectangles for platforms
-- **Assets needed:** Colorful sprites generated in GDScript — player as orange circle with eyes, coins as gold circles, platforms as green/brown rectangles
+- **Assets:**
+  - `player` sprite sheet (`assets/img/player.png`) — 248x248 px per frame, hframes=4 vframes=4. Background color is #87CEEB (sky blue). Row 0: walk (frames 0-3), Row 1: walk cont (frames 4-7), Row 2: jump (frames 8-11), Row 3: idle (frames 12-15). Scale sprite to ~64x64 display size.
+  - `coin` sprite (`assets/img/tiles/coin.png`) — 248x248 px, background #87CEEB. Display at ~40x40 px.
+  - `sky_bg` background (`assets/img/sky_bg.png`) — display at 1280x720 fullscreen as TextureRect.
+  - Game background color: #87CEEB (matches sprite backgrounds for seamless blending).
+  - Platforms: draw as GDScript StaticBody2D with colored rectangles (green top bar + brown body).
 - **Verify:** Screenshot shows player standing on a platform, several coins visible on other platforms, score "0" (or more) displayed in top-left. Player can jump and coins disappear on contact.
 
 ## 2. Presentation Video
